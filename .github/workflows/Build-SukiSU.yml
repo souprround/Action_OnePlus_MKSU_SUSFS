@@ -15,6 +15,7 @@ on:
           - sm8550
           - sm8650
           - sm8750
+          - sm8845
           - sm8850
       FEIL:
         type: choice
@@ -43,6 +44,7 @@ on:
           - oneplus_13
           - oneplus_13t
           - oneplus_ace5_pro
+          - oneplus_ace_6t
           - oneplus_pad_2_pro
           - oneplus_pad_3
           - oneplus_15
