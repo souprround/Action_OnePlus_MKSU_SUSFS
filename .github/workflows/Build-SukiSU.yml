@@ -161,6 +161,9 @@ jobs:
         run: |
           mkdir kernel_workspace && cd kernel_workspace
           repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/${{ github.event.inputs.CPU }} -m ${{ github.event.inputs.FEIL }}.xml --depth=1
+           # 用你自己仓库里的 XML 文件覆盖掉原来的
+          curl -o .repo/manifests/${{ github.event.inputs.FEIL }}.xml \
+          "https://raw.githubusercontent.com/souprround/Action_OnePlus_MKSU_SUSFS/main/${{ github.event.inputs.FEIL }}.xml"
           repo sync
           if [  -e kernel_platform/common/BUILD.bazel ]; then
           sed -i '/^[[:space:]]*"protected_exports_list"[[:space:]]*:[[:space:]]*"android\/abi_gki_protected_exports_aarch64",$/d' kernel_platform/common/BUILD.bazel
